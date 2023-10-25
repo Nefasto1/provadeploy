@@ -64,12 +64,12 @@
         document.getElementById("calculate-button").addEventListener("click", function () {
             // Get form data
             const gender = document.getElementById("gender").value;
-            const age = document.getElementById("age").value;
-            const height = document.getElementById("height").value;
-            const weight = document.getElementById("weight").value;
-            const duration = document.getElementById("duration").value;
-            const heartRate = document.getElementById("heart_rate").value;
-            const bodyTemp = document.getElementById("body_temp").value;
+            const Age = document.getElementById("age").value;
+            const Height = document.getElementById("height").value;
+            const Weight = document.getElementById("weight").value;
+            const Duration = document.getElementById("duration").value;
+            const Heart_Rate = document.getElementById("heart_rate").value;
+            const Body_Temp = document.getElementById("body_temp").value;
 
             // const gender = 0
             // const Age = 29
@@ -82,12 +82,12 @@
             // Prepare data as an object
             const data = {
                 Gender:0?gender=="Male":1,
-                age,
-                height,
-                weight,
-                duration,
-                heartRate,
-                bodyTemp
+                Age,
+                Height,
+                Weight,
+                Duration,
+                Heart_Rate,
+                Body_Temp
             };
             // console.log(data)
 
