@@ -1,0 +1,8 @@
+EDA
+Model
+HTML
+FastAPI
+requirements.txt
+Docker
+GitHub Pages (name.github.io/repo)
+Render
