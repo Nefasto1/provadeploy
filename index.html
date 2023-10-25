@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>Calorie Burning Calculator</title>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,13 +21,9 @@
             margin-bottom: 10px;
         }
     </style>
-
 </head>
-
 <body>
-
     <h1>Calorie Burning Calculator</h1>
-
     <form id="calculator-form">
         <label for="gender">Gender</label>
         <select id="gender" name="gender">
@@ -54,15 +48,14 @@
 
         <label for="body_temp">Body Temperature (°C)</label>
         <input type="number" id="body_temp" name="body_temp" required>
-
         <button type="button" id="calculate-button">Calculate</button>
     </form>
-
     <div id="result"></div>
 
     <script>
         document.getElementById("calculate-button").addEventListener("click", function () {
             // Get form data
+            
             const gender = document.getElementById("gender").value;
             const Age = document.getElementById("age").value;
             const Height = document.getElementById("height").value;
@@ -70,15 +63,7 @@
             const Duration = document.getElementById("duration").value;
             const Heart_Rate = document.getElementById("heart_rate").value;
             const Body_Temp = document.getElementById("body_temp").value;
-
-            // const gender = 0
-            // const Age = 29
-            // const Height =188 
-            // const Weight = 88
-            // const Duration = 30
-            // const Heart_Rate = 110
-            // const Body_Temp = 40
-
+        
             // Prepare data as an object
             const data = {
                 Gender:0?gender=="Male":1,
@@ -89,26 +74,29 @@
                 Heart_Rate,
                 Body_Temp
             };
-            // console.log(data)
-
+            
             // Make an HTTP POST request to a hypothetical server
+            // fetch("https://calories-model-service.onrender.com/predict", {
+            
             fetch("https://provadeploy.onrender.com/predict", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
                 body: JSON.stringify(data)
             })
             .then(response => response.json())
             .then(result => {
                 // Display the response on the page
+                console.log(result)
                 const resultElement = document.getElementById("result");
-                resultElement.innerHTML = "Calories burned: " + result.calories;
+                resultElement.innerHTML = "Calories burned: " + result['burned calories'];
             })
             .catch(error => {
                 const resultElement = document.getElementById("result");
-                resultElement.innerHTML = "Error: " + error;
+                resultElement.innerHTML = error;
             });
+
         });
     </script>
 </body>
